@@ -845,30 +845,30 @@ export namespace Prisma {
 
   export type Product_dataMinAggregateOutputType = {
     id: string | null
-    description: string | null
-    imageUrl: string | null
     name: string | null
+    description: string | null
     price: number | null
+    photo: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type Product_dataMaxAggregateOutputType = {
     id: string | null
-    description: string | null
-    imageUrl: string | null
     name: string | null
+    description: string | null
     price: number | null
+    photo: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type Product_dataCountAggregateOutputType = {
     id: number
-    description: number
-    imageUrl: number
     name: number
+    description: number
     price: number
+    photo: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -885,30 +885,30 @@ export namespace Prisma {
 
   export type Product_dataMinAggregateInputType = {
     id?: true
-    description?: true
-    imageUrl?: true
     name?: true
+    description?: true
     price?: true
+    photo?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type Product_dataMaxAggregateInputType = {
     id?: true
-    description?: true
-    imageUrl?: true
     name?: true
+    description?: true
     price?: true
+    photo?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type Product_dataCountAggregateInputType = {
     id?: true
-    description?: true
-    imageUrl?: true
     name?: true
+    description?: true
     price?: true
+    photo?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1002,10 +1002,10 @@ export namespace Prisma {
 
   export type Product_dataGroupByOutputType = {
     id: string
-    description: string
-    imageUrl: string
     name: string
+    description: string
     price: number
+    photo: string
     createdAt: Date
     updatedAt: Date
     _count: Product_dataCountAggregateOutputType | null
@@ -1031,10 +1031,10 @@ export namespace Prisma {
 
   export type Product_dataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    description?: boolean
-    imageUrl?: boolean
     name?: boolean
+    description?: boolean
     price?: boolean
+    photo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["product_data"]>
@@ -1043,25 +1043,25 @@ export namespace Prisma {
 
   export type Product_dataSelectScalar = {
     id?: boolean
-    description?: boolean
-    imageUrl?: boolean
     name?: boolean
+    description?: boolean
     price?: boolean
+    photo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type Product_dataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "description" | "imageUrl" | "name" | "price" | "createdAt" | "updatedAt", ExtArgs["result"]["product_data"]>
+  export type Product_dataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "price" | "photo" | "createdAt" | "updatedAt", ExtArgs["result"]["product_data"]>
 
   export type $Product_dataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Product_data"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      description: string
-      imageUrl: string
       name: string
+      description: string
       price: number
+      photo: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["product_data"]>
@@ -1457,10 +1457,10 @@ export namespace Prisma {
    */
   interface Product_dataFieldRefs {
     readonly id: FieldRef<"Product_data", 'String'>
-    readonly description: FieldRef<"Product_data", 'String'>
-    readonly imageUrl: FieldRef<"Product_data", 'String'>
     readonly name: FieldRef<"Product_data", 'String'>
+    readonly description: FieldRef<"Product_data", 'String'>
     readonly price: FieldRef<"Product_data", 'Int'>
+    readonly photo: FieldRef<"Product_data", 'String'>
     readonly createdAt: FieldRef<"Product_data", 'DateTime'>
     readonly updatedAt: FieldRef<"Product_data", 'DateTime'>
   }
@@ -1817,10 +1817,10 @@ export namespace Prisma {
 
   export const Product_dataScalarFieldEnum: {
     id: 'id',
-    description: 'description',
-    imageUrl: 'imageUrl',
     name: 'name',
+    description: 'description',
     price: 'price',
+    photo: 'photo',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -1913,20 +1913,20 @@ export namespace Prisma {
     OR?: Product_dataWhereInput[]
     NOT?: Product_dataWhereInput | Product_dataWhereInput[]
     id?: StringFilter<"Product_data"> | string
-    description?: StringFilter<"Product_data"> | string
-    imageUrl?: StringFilter<"Product_data"> | string
     name?: StringFilter<"Product_data"> | string
+    description?: StringFilter<"Product_data"> | string
     price?: IntFilter<"Product_data"> | number
+    photo?: StringFilter<"Product_data"> | string
     createdAt?: DateTimeFilter<"Product_data"> | Date | string
     updatedAt?: DateTimeFilter<"Product_data"> | Date | string
   }
 
   export type Product_dataOrderByWithRelationInput = {
     id?: SortOrder
-    description?: SortOrder
-    imageUrl?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     price?: SortOrder
+    photo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -1936,20 +1936,20 @@ export namespace Prisma {
     AND?: Product_dataWhereInput | Product_dataWhereInput[]
     OR?: Product_dataWhereInput[]
     NOT?: Product_dataWhereInput | Product_dataWhereInput[]
-    description?: StringFilter<"Product_data"> | string
-    imageUrl?: StringFilter<"Product_data"> | string
     name?: StringFilter<"Product_data"> | string
+    description?: StringFilter<"Product_data"> | string
     price?: IntFilter<"Product_data"> | number
+    photo?: StringFilter<"Product_data"> | string
     createdAt?: DateTimeFilter<"Product_data"> | Date | string
     updatedAt?: DateTimeFilter<"Product_data"> | Date | string
   }, "id">
 
   export type Product_dataOrderByWithAggregationInput = {
     id?: SortOrder
-    description?: SortOrder
-    imageUrl?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     price?: SortOrder
+    photo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: Product_dataCountOrderByAggregateInput
@@ -1964,76 +1964,76 @@ export namespace Prisma {
     OR?: Product_dataScalarWhereWithAggregatesInput[]
     NOT?: Product_dataScalarWhereWithAggregatesInput | Product_dataScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Product_data"> | string
-    description?: StringWithAggregatesFilter<"Product_data"> | string
-    imageUrl?: StringWithAggregatesFilter<"Product_data"> | string
     name?: StringWithAggregatesFilter<"Product_data"> | string
+    description?: StringWithAggregatesFilter<"Product_data"> | string
     price?: IntWithAggregatesFilter<"Product_data"> | number
+    photo?: StringWithAggregatesFilter<"Product_data"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Product_data"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Product_data"> | Date | string
   }
 
   export type Product_dataCreateInput = {
     id?: string
-    description: string
-    imageUrl: string
     name: string
+    description: string
     price: number
+    photo: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type Product_dataUncheckedCreateInput = {
     id?: string
-    description: string
-    imageUrl: string
     name: string
+    description: string
     price: number
+    photo: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type Product_dataUpdateInput = {
-    description?: StringFieldUpdateOperationsInput | string
-    imageUrl?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    photo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type Product_dataUncheckedUpdateInput = {
-    description?: StringFieldUpdateOperationsInput | string
-    imageUrl?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    photo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type Product_dataCreateManyInput = {
     id?: string
-    description: string
-    imageUrl: string
     name: string
+    description: string
     price: number
+    photo: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type Product_dataUpdateManyMutationInput = {
-    description?: StringFieldUpdateOperationsInput | string
-    imageUrl?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    photo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type Product_dataUncheckedUpdateManyInput = {
-    description?: StringFieldUpdateOperationsInput | string
-    imageUrl?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    photo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2077,10 +2077,10 @@ export namespace Prisma {
 
   export type Product_dataCountOrderByAggregateInput = {
     id?: SortOrder
-    description?: SortOrder
-    imageUrl?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     price?: SortOrder
+    photo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2091,20 +2091,20 @@ export namespace Prisma {
 
   export type Product_dataMaxOrderByAggregateInput = {
     id?: SortOrder
-    description?: SortOrder
-    imageUrl?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     price?: SortOrder
+    photo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type Product_dataMinOrderByAggregateInput = {
     id?: SortOrder
-    description?: SortOrder
-    imageUrl?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     price?: SortOrder
+    photo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
