@@ -19,6 +19,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+import cloudinary from "@/lib/cloudinary";
+import prisma from "@/lib/prisma";
+import { redirect } from "next/navigation";
+
 export const metadata = {
   title: "Add Product",
 };
@@ -28,7 +32,36 @@ async function addProduct(formData: FormData) {
 
   const name = formData.get("name")?.toString();
   const description = formData.get("description")?.toString();
-  
+  const price = Number(formData.get("price") || 0);
+  const category = formData.get("category")?.toString();
+  const photo = formData.get("photo") as File;
+
+  let photoUrl = "";
+
+  if (photo && photo.size > 0) {
+    const arrayBuffer = await photo.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+
+    // Convert buffer to base64 for Cloudinary upload
+    const base64Image = `data:${photo.type};base64,${buffer.toString("base64")}`;
+
+    // Upload to Cloudinary
+    const uploadResult = await cloudinary.uploader.upload(base64Image, {
+      folder: "products",
+    });
+
+    photoUrl = uploadResult.secure_url;
+  }
+
+  if (!name || !description || !price || !category || !photo) {
+    throw new Error("All fields are required");
+  }
+
+  await prisma.product_data.create({
+    data: { name, description, price, category, photo: photoUrl },
+  });
+
+  redirect("/");
 }
 
 export default function AddProductPage() {
@@ -36,7 +69,7 @@ export default function AddProductPage() {
     <div className="min-h-screen flex items-center justify-center">
       <Card className="w-full max-w-4xl p-4">
         {/* Wrap both columns inside the form */}
-        <form action={addProduct} encType="multipart/form-data">
+        <form action={addProduct} >
           <div className="flex flex-col md:flex-row gap-6">
             {/* Left Column: Form Fields */}
             <div className="flex-1">
@@ -51,6 +84,7 @@ export default function AddProductPage() {
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="name">Name</Label>
                     <Input
+                      required
                       id="name"
                       name="name"
                       placeholder="Name of the product"
@@ -59,6 +93,7 @@ export default function AddProductPage() {
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="description">Description</Label>
                     <Input
+                      required
                       id="description"
                       name="description"
                       placeholder="Description of the product"
@@ -67,9 +102,11 @@ export default function AddProductPage() {
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="price">Pricing</Label>
                     <Input
+                      required
                       id="price"
                       name="price"
                       placeholder="Price of the product"
+                      type="number"
                     />
                   </div>
                   <div className="flex flex-col space-y-1.5">
@@ -93,7 +130,13 @@ export default function AddProductPage() {
             {/* Right Column: File Upload */}
             <div className="flex-1 flex flex-col justify-center items-center border border-dashed border-gray-300 rounded-lg p-6 text-center">
               <p className="mb-2 text-sm text-gray-500">Upload Product Photo</p>
-              <Input id="photo" name="photo" type="file" className="w-full" />
+              <Input
+                required
+                id="photo"
+                name="photo"
+                type="file"
+                className="w-full"
+              />
               <p className="mt-2 text-xs text-gray-400">PNG, JPG up to 5MB</p>
             </div>
           </div>

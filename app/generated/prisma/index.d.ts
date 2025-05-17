@@ -848,6 +848,7 @@ export namespace Prisma {
     name: string | null
     description: string | null
     price: number | null
+    category: string | null
     photo: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -858,6 +859,7 @@ export namespace Prisma {
     name: string | null
     description: string | null
     price: number | null
+    category: string | null
     photo: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -868,6 +870,7 @@ export namespace Prisma {
     name: number
     description: number
     price: number
+    category: number
     photo: number
     createdAt: number
     updatedAt: number
@@ -888,6 +891,7 @@ export namespace Prisma {
     name?: true
     description?: true
     price?: true
+    category?: true
     photo?: true
     createdAt?: true
     updatedAt?: true
@@ -898,6 +902,7 @@ export namespace Prisma {
     name?: true
     description?: true
     price?: true
+    category?: true
     photo?: true
     createdAt?: true
     updatedAt?: true
@@ -908,6 +913,7 @@ export namespace Prisma {
     name?: true
     description?: true
     price?: true
+    category?: true
     photo?: true
     createdAt?: true
     updatedAt?: true
@@ -1005,6 +1011,7 @@ export namespace Prisma {
     name: string
     description: string
     price: number
+    category: string
     photo: string
     createdAt: Date
     updatedAt: Date
@@ -1034,6 +1041,7 @@ export namespace Prisma {
     name?: boolean
     description?: boolean
     price?: boolean
+    category?: boolean
     photo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -1046,12 +1054,13 @@ export namespace Prisma {
     name?: boolean
     description?: boolean
     price?: boolean
+    category?: boolean
     photo?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type Product_dataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "price" | "photo" | "createdAt" | "updatedAt", ExtArgs["result"]["product_data"]>
+  export type Product_dataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "price" | "category" | "photo" | "createdAt" | "updatedAt", ExtArgs["result"]["product_data"]>
 
   export type $Product_dataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Product_data"
@@ -1061,6 +1070,7 @@ export namespace Prisma {
       name: string
       description: string
       price: number
+      category: string
       photo: string
       createdAt: Date
       updatedAt: Date
@@ -1460,6 +1470,7 @@ export namespace Prisma {
     readonly name: FieldRef<"Product_data", 'String'>
     readonly description: FieldRef<"Product_data", 'String'>
     readonly price: FieldRef<"Product_data", 'Int'>
+    readonly category: FieldRef<"Product_data", 'String'>
     readonly photo: FieldRef<"Product_data", 'String'>
     readonly createdAt: FieldRef<"Product_data", 'DateTime'>
     readonly updatedAt: FieldRef<"Product_data", 'DateTime'>
@@ -1820,6 +1831,7 @@ export namespace Prisma {
     name: 'name',
     description: 'description',
     price: 'price',
+    category: 'category',
     photo: 'photo',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -1916,6 +1928,7 @@ export namespace Prisma {
     name?: StringFilter<"Product_data"> | string
     description?: StringFilter<"Product_data"> | string
     price?: IntFilter<"Product_data"> | number
+    category?: StringFilter<"Product_data"> | string
     photo?: StringFilter<"Product_data"> | string
     createdAt?: DateTimeFilter<"Product_data"> | Date | string
     updatedAt?: DateTimeFilter<"Product_data"> | Date | string
@@ -1926,6 +1939,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrder
     price?: SortOrder
+    category?: SortOrder
     photo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -1939,6 +1953,7 @@ export namespace Prisma {
     name?: StringFilter<"Product_data"> | string
     description?: StringFilter<"Product_data"> | string
     price?: IntFilter<"Product_data"> | number
+    category?: StringFilter<"Product_data"> | string
     photo?: StringFilter<"Product_data"> | string
     createdAt?: DateTimeFilter<"Product_data"> | Date | string
     updatedAt?: DateTimeFilter<"Product_data"> | Date | string
@@ -1949,6 +1964,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrder
     price?: SortOrder
+    category?: SortOrder
     photo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -1967,6 +1983,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Product_data"> | string
     description?: StringWithAggregatesFilter<"Product_data"> | string
     price?: IntWithAggregatesFilter<"Product_data"> | number
+    category?: StringWithAggregatesFilter<"Product_data"> | string
     photo?: StringWithAggregatesFilter<"Product_data"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Product_data"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Product_data"> | Date | string
@@ -1977,6 +1994,7 @@ export namespace Prisma {
     name: string
     description: string
     price: number
+    category: string
     photo: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -1987,6 +2005,7 @@ export namespace Prisma {
     name: string
     description: string
     price: number
+    category: string
     photo: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -1996,6 +2015,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    category?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -2005,6 +2025,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    category?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -2015,6 +2036,7 @@ export namespace Prisma {
     name: string
     description: string
     price: number
+    category: string
     photo: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -2024,6 +2046,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    category?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -2033,6 +2056,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
+    category?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -2080,6 +2104,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrder
     price?: SortOrder
+    category?: SortOrder
     photo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -2094,6 +2119,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrder
     price?: SortOrder
+    category?: SortOrder
     photo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -2104,6 +2130,7 @@ export namespace Prisma {
     name?: SortOrder
     description?: SortOrder
     price?: SortOrder
+    category?: SortOrder
     photo?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
